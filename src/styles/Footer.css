@@ -1,0 +1,16 @@
+footer {
+	position: fixed;
+	margin: 0;
+	padding: 5px;
+	left: 0;
+	bottom: 0;
+	width: 100%;
+	background-color: #cdcdcd;
+}
+
+footer h1 {
+	margin: 0;
+	padding: 0;
+	font-family: monospace;
+	font-size: 30px;
+}
