@@ -1,0 +1,16 @@
+.Tutorials {
+	margin: 5px 5px 0 5px;
+	padding: 5px;
+	background-color: #cdcdcd;
+}
+
+.Tutorials h3 {
+	margin: 0;
+	padding: 0;
+	font-family: monospace;
+	font-size: 20px;
+}
+
+.Tutorials h3:last-child {
+	margin: 5px 0 0 0;
+}
