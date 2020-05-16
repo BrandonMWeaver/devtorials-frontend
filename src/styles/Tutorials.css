@@ -14,3 +14,29 @@
 .Tutorials h3:last-child {
 	margin: 5px 0 0 0;
 }
+
+.Tutorials .TutorialSummary {
+	margin: 5px 0 0 0;
+	padding: 5px;
+	background-color: #00f;
+}
+
+.Tutorials .TutorialSummary a {
+	margin: 0;
+	padding: 0;
+	font-family: monospace;
+	font-size: 20px;
+	text-decoration: none;
+	color: #000;
+}
+
+.Tutorials .TutorialSummary a:hover {
+	text-decoration: underline;
+}
+
+.Tutorials .TutorialSummary p {
+	margin: 5px 0 0 0;
+	padding: 0;
+	font-family: monospace;
+	font-size: 15px;
+}
