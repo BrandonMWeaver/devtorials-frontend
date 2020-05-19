@@ -12,7 +12,7 @@ const Tutorials = props => {
 					<div className="TutorialSummary" key={index}>
 						<NavLink to={`/tutorials/${index + 1}`}>{tutorial.title}</NavLink>
 						<p>{tutorial.language}</p>
-						<p>{tutorial.content}</p>
+						<p>{tutorial.description}</p>
 					</div>
 				);
 			})}
