@@ -8,10 +8,18 @@ import Tutorial from './components/Tutorial';
 
 import './App.css';
 
-import tutorials from './Data';
-
 class App extends Component {
-  state = tutorials;
+  state = { tutorials: [] };
+
+  componentDidMount() {
+    fetch("http://localhost:3000/tutorials")
+    .then(r => r.json())
+    .then(o => {
+      this.setState({
+        tutorials: o
+      });
+    });
+  }
 
   render() {
     return (
