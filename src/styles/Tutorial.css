@@ -26,3 +26,24 @@
 	font-family: monospace;
 	font-size: 15px;
 }
+
+.Tutorial pre.code {
+	margin: 5px 0 0 0;
+	padding: 5px;
+	font-family: monospace;
+	font-size: 15px;
+	tab-size: 4;
+}
+
+.Tutorial pre.code span.keyword {
+	margin: 0;
+	padding: 0;
+	color: #0000cd;
+}
+
+.Tutorial pre.code span.highlighted {
+	margin: 0;
+	padding: 0;
+	color: #000;
+	background-color: #ff0;
+}
