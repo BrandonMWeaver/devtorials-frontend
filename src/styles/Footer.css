@@ -6,6 +6,7 @@ footer {
 	bottom: 0;
 	width: 100%;
 	background-color: #cdcdcd;
+	border-top: 1px solid #9b9b9b;
 }
 
 footer h1 {

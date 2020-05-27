@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Route } from 'react-router-dom';
 
 import Header from './components/Header';
 import Footer from './components/Footer';
+import About from './components/About';
 import Tutorials from './containers/Tutorials';
 import Tutorial from './components/Tutorial';
 
@@ -35,6 +36,9 @@ class App extends Component {
           }} />
           <Route exact path='/' render={() => {
             return <Tutorials type="recent" tutorials={this.state.tutorials} />
+          }} />
+          <Route exact path="/about" render={() => {
+            return <About />
           }} />
           {this.state.tutorials.map((tutorial, index) => {
             return (

@@ -2,6 +2,8 @@ import React from 'react';
 
 import '../styles/Tutorial.css';
 
+const keywords = [ "namespace", "static", "string", "using", "void" ];
+
 const getColor = language => {
 	switch (language) {
 		case 'C':
@@ -23,14 +25,32 @@ const parseContent = content => {
 	const lines = content.split('\n');
 	let parsedLines = [];
 
-	for (let line of lines) {
-		if (line.startsWith("//")) {
-			line = `<span style="color: #CDCDCD;">${line}</span>`;
+	for (let i = 0; i < lines.length; i++) {
+		let j;
+		if (lines[i].includes("<pre class=\"code\">")) {
+			j = i + 1;
+			while (!lines[j].includes("</pre>")) {
+				lines[j] = parseCode(lines[j]);
+				j++;
+			}
 		}
-		parsedLines.push(line);
+
+		parsedLines.push(lines[i]);
 	}
 
 	return parsedLines.join('\n');
+}
+
+const parseCode = code => {
+	if (code.startsWith("//")) {
+		code = code.replace(code, `<span style="color: #CDCDCD;">${code}</span>`);
+	}
+	else {
+		for (const keyword of keywords) {
+			code = code.replace(keyword, `<span class="keyword">${keyword}</span>`);
+		}
+	}
+	return code;
 }
 
 const Tutorial = props => {

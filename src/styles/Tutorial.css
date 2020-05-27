@@ -1,5 +1,5 @@
 .Tutorial {
-	margin: 5px;
+	margin: 0;
 	padding: 5px;
 	background-color: #cdcdcd;
 }
@@ -28,20 +28,41 @@
 }
 
 .Tutorial pre.code {
+	overflow: auto;
 	margin: 5px 0 0 0;
 	padding: 5px;
 	font-family: monospace;
 	font-size: 15px;
 	tab-size: 4;
+	color: #fff;
+	background-color: #9b9b9b;
 }
 
-.Tutorial pre.code span.keyword {
+.Tutorial .space {
 	margin: 0;
 	padding: 0;
-	color: #0000cd;
+	height: 20px;
 }
 
-.Tutorial pre.code span.highlighted {
+.Tutorial span.keyword {
+	margin: 0;
+	padding: 0;
+	color: #00f;
+}
+
+.Tutorial span.class {
+	margin: 0;
+	padding: 0;
+	color: #376937;
+}
+
+.Tutorial span.function {
+	margin: 0;
+	padding: 0;
+	color: #ffff69;
+}
+
+.Tutorial span.highlighted {
 	margin: 0;
 	padding: 0;
 	color: #000;

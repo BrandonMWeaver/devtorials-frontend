@@ -1,7 +1,12 @@
 header {
+	position: fixed;
 	margin: 0;
 	padding: 5px;
+	left: 0;
+	top: 0;
+	width: 100%;
 	background-color: #cdcdcd;
+	border-bottom: 1px solid #9b9b9b;
 }
 
 header h1 {
