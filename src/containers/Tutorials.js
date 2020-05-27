@@ -3,6 +3,8 @@ import { NavLink } from 'react-router-dom';
 
 import '../styles/Tutorials.css';
 
+import { getColor } from '../components/Tutorial';
+
 const Tutorials = props => {
 	return (
 		<div className="Tutorials">
@@ -11,7 +13,7 @@ const Tutorials = props => {
 				return (
 					<div className="TutorialSummary" key={index}>
 						<NavLink to={`/tutorials/${index + 1}`}>{tutorial.title}</NavLink>
-						<p>{tutorial.language}</p>
+						<p style={{ color: getColor(tutorial.language) }}>{tutorial.language}</p>
 						<p>{tutorial.description}</p>
 					</div>
 				);

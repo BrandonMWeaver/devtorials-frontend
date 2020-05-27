@@ -47,3 +47,8 @@
 	color: #000;
 	background-color: #ff0;
 }
+
+.Tutorial iframe {
+	display: block;
+	margin: 5px auto 0 auto;
+}
