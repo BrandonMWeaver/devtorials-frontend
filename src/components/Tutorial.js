@@ -1,10 +1,11 @@
 import React from 'react';
+import { NavLink } from 'react-router-dom';
 
 import '../styles/Tutorial.css';
 
 const keywords = [ "namespace", "static", "string", "using", "void" ];
 
-const getColor = language => {
+export const getColor = language => {
 	switch (language) {
 		case 'C':
 			return "#00F";
@@ -28,7 +29,7 @@ const parseContent = content => {
 	for (let i = 0; i < lines.length; i++) {
 		let j;
 		if (lines[i].includes("<pre class=\"code\">")) {
-			j = i + 1;
+			j = i;
 			while (!lines[j].includes("</pre>")) {
 				lines[j] = parseCode(lines[j]);
 				j++;
@@ -53,15 +54,24 @@ const parseCode = code => {
 	return code;
 }
 
+const setTitle = props => {
+	return `<h3>${props.tutorial.title}</h3><h5 style="color: ${getColor(props.tutorial.language)}" }}>${props.tutorial.language}</h5>`;
+}
+
 const Tutorial = props => {
 	return (
 		<div className="Tutorial">
-			<h3>{props.tutorial.title}</h3>
-			<h5 style={{ color: getColor(props.tutorial.language) }}>{props.tutorial.language}</h5>
-			<div dangerouslySetInnerHTML={{ __html: parseContent(props.tutorial.content) }} />
+			<div className="lesson" dangerouslySetInnerHTML={{ __html: `${setTitle(props)}${parseContent(props.lesson.content)}` }} />
+			<div className="lesson-bar">
+				<h3>Lessons</h3>
+				{props.tutorial.lessons.map((lesson, index) => {
+					return (
+						<NavLink key={index} to={`/tutorials/${props.tutorial.id}/lessons/${lesson.id}`}>{`Lesson ${lesson.id}`}</NavLink>
+					);
+				})}
+			</div>
 		</div>
 	);
 }
 
-export { getColor };
 export default Tutorial;

@@ -4,6 +4,43 @@
 	background-color: #cdcdcd;
 }
 
+.Tutorial .lesson {
+	display: inline-block;
+	width: 85%;
+}
+
+.Tutorial .lesson-bar {
+	position: fixed;
+	overflow: auto;
+	display: inline-block;
+	margin: 0 0 0 5px;
+	width: calc(15% - 3px);
+	height: calc(100% - 138px);
+	top: 69px;
+	right: 0;
+	background-color: #cdcdcd;
+	border-left: 1px solid #9b9b9b;
+}
+
+.Tutorial .lesson-bar h3 {
+	margin: 5px 0 0 0;
+	font-size: 15px;
+}
+
+.Tutorial .lesson-bar a {
+	display: block;
+	margin: 15px 0 0 0;
+	text-align: center;
+	font-family: monospace;
+	font-size: 10px;
+	text-decoration: none;
+	color: #000;
+}
+
+.Tutorial .lesson-bar a:hover {
+	text-decoration: underline;
+}
+
 .Tutorial h3 {
 	margin: 0;
 	padding: 0;

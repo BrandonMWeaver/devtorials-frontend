@@ -1,9 +1,9 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 
-import '../styles/Tutorials.css';
-
 import { getColor } from '../components/Tutorial';
+
+import '../styles/Tutorials.css';
 
 const Tutorials = props => {
 	return (
@@ -12,7 +12,7 @@ const Tutorials = props => {
 			{props.tutorials.map((tutorial, index) => {
 				return (
 					<div className="TutorialSummary" key={index}>
-						<NavLink to={`/tutorials/${index + 1}`}>{tutorial.title}</NavLink>
+						<NavLink to={`/tutorials/${tutorial.id}/lessons/1`}>{tutorial.title}</NavLink>
 						<p style={{ color: getColor(tutorial.language) }}>{tutorial.language}</p>
 						<p>{tutorial.description}</p>
 					</div>

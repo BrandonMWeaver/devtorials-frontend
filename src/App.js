@@ -22,6 +22,20 @@ class App extends Component {
     });
   }
 
+  setLessonRoutes(tutorials) {
+    const routes = []
+    for (let i = 0; i < tutorials.length; i++) {
+      for (let j = 0; j < tutorials[i].lessons.length; j++) {
+        routes.push(
+          <Route exact path={`/tutorials/${tutorials[i].id}/lessons/${j + 1}`} key={`${i}${tutorials[i].lessons[j].id}`} render={() => {
+            return <Tutorial tutorial={tutorials[i]} lesson={tutorials[i].lessons[j]} />
+          }} />
+        );
+      }
+    }
+    return routes;
+  }
+
   render() {
     return (
       <div className="App">
@@ -40,13 +54,7 @@ class App extends Component {
           <Route exact path="/about" render={() => {
             return <About />
           }} />
-          {this.state.tutorials.map((tutorial, index) => {
-            return (
-              <Route exact path={`/tutorials/${index + 1}`} key={index} render={() => {
-                return <Tutorial tutorial={tutorial} />
-              }} />
-            );
-          })}
+          {this.setLessonRoutes(this.state.tutorials)}
         </Router>
       </div>
     );
