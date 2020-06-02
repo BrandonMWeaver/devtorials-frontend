@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Route } from 'react-router-dom';
 import Header from './components/Header';
 import Footer from './components/Footer';
 import About from './components/About';
+import AdministratorForm from './components/AdministratorForm';
 import Tutorials from './containers/Tutorials';
 import Tutorial from './components/Tutorial';
 
@@ -53,6 +54,9 @@ class App extends Component {
           }} />
           <Route exact path="/about" render={() => {
             return <About />
+          }} />
+          <Route exact path="/admin" render={() => {
+            return <AdministratorForm />
           }} />
           {this.setLessonRoutes(this.state.tutorials)}
         </Router>

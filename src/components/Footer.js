@@ -6,7 +6,8 @@ import '../styles/Footer.css';
 
 const Footer = () => {
 	const footerLinks = [
-		{ to: "/about", innerHTML: "<About />" }
+		{ to: "/about", innerHTML: "<about />" },
+		{ to: "/admin", innerHTML: "<admin />" }
 	];
 
 	return (

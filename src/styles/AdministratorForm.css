@@ -1,0 +1,17 @@
+.AdminForm {
+	margin: 0;
+	padding: 5px;
+}
+
+.AdminForm form input {
+	display: block;
+	margin: 5px 0 0 0;
+}
+
+.AdminForm form input:first-child {
+	margin: 0;
+}
+
+.AdminForm form input[type="submit"]:hover {
+	cursor: pointer;
+}

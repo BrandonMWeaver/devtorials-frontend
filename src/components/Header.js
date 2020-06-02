@@ -6,7 +6,7 @@ import '../styles/Header.css';
 
 const Header = () => {
 	const headerLinks = [
-		{ to: '/', innerHTML: "<Home />" }
+		{ to: '/', innerHTML: "<home />" }
 	];
 
 	return (
