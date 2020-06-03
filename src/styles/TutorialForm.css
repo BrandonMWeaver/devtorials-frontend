@@ -1,0 +1,18 @@
+.TutorialForm {
+	margin: 0;
+	padding: 5px;
+}
+
+.TutorialForm form input {
+	display: block;
+	margin: 5px 0 0 0;
+}
+
+.TutorialForm form input:first-child {
+	margin: 0;
+}
+
+.TutorialForm form textarea {
+	display: block;
+	margin: 5px 0 0 0;
+}

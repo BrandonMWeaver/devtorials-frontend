@@ -7,11 +7,12 @@ import About from './components/About';
 import AdministratorForm from './components/AdministratorForm';
 import Tutorials from './containers/Tutorials';
 import Tutorial from './components/Tutorial';
+import TutorialForm from './components/TutorialForm';
 
 import './App.css';
 
 class App extends Component {
-  state = { tutorials: [] };
+  state = { tutorials: [], currentAdmin: null };
 
   componentDidMount() {
     fetch("http://localhost:3000/tutorials")
@@ -19,6 +20,33 @@ class App extends Component {
     .then(o => {
       this.setState({
         tutorials: o
+      });
+    });
+    fetch("http://localhost:3000/current-admin", {
+      credentials: "include"
+    })
+    .then(r => r.json())
+    .then(o => {
+      this.setState({
+        currentAdmin: o
+      });
+    })
+  }
+
+  signIn = response => {
+    this.setState({
+      currentAdmin: response
+    });
+  }
+
+  signOut = () => {
+    fetch("http://localhost:3000/sign-out", {
+      credentials: "include"
+    })
+    .then(r => r.json())
+    .then(o => {
+      this.setState({
+        currentAdmin: o
       });
     });
   }
@@ -45,7 +73,7 @@ class App extends Component {
             return (
               <>
               <Header />
-              <Footer />
+              <Footer currentAdmin={this.state.currentAdmin} signOut={this.signOut} />
               </>
             );
           }} />
@@ -56,8 +84,15 @@ class App extends Component {
             return <About />
           }} />
           <Route exact path="/admin" render={() => {
-            return <AdministratorForm />
+            return <AdministratorForm signIn={this.signIn} />
           }} />
+          {this.state.currentAdmin ?
+          <Route exact path="/tutorials/new" render={() => {
+            return <TutorialForm />
+          }} />
+          :
+          null
+          }
           {this.setLessonRoutes(this.state.tutorials)}
         </Router>
       </div>

@@ -16,6 +16,16 @@ class AdministratorForm extends Component {
 
 	handleSubmit = e => {
 		e.preventDefault();
+		fetch("http://localhost:3000/sign-in", {
+			method: "POST",
+			headers: {
+				"Content-Type": "application/json"
+			},
+			credentials: "include",
+			body: JSON.stringify(this.state)
+		})
+		.then(r => r.json())
+		.then(o => this.props.signIn(o));
 		this.setState({
 			username: '',
 			password: ''

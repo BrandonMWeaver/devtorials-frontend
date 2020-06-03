@@ -4,15 +4,15 @@ import NavigationBar from './NavigationBar';
 
 import '../styles/Footer.css';
 
-const Footer = () => {
+const Footer = props => {
 	const footerLinks = [
-		{ to: "/about", innerHTML: "<about />" },
-		{ to: "/admin", innerHTML: "<admin />" }
+		props.currentAdmin ? { to: "/tutorials/new", innerHTML: "<form />" } : { to: "/about", innerHTML: "<about />" },
+		props.currentAdmin ? { to: '/', innerHTML: "<exit />" } : { to: "/admin", innerHTML: "<admin />" }
 	];
 
 	return (
 		<footer>
-			<NavigationBar links={footerLinks} />
+			<NavigationBar links={footerLinks} signOut={props.signOut} />
 			<h1>{"</devtorials>"}</h1>
 		</footer>
 	);
