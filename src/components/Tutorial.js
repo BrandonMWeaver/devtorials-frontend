@@ -23,23 +23,28 @@ export const getColor = language => {
 }
 
 const parseContent = content => {
-	const lines = content.split('\n');
-	let parsedLines = [];
+	if (content.includes('\n')) {
+		const lines = content.split('\n');
+		let parsedLines = [];
 
-	for (let i = 0; i < lines.length; i++) {
-		let j;
-		if (lines[i].includes("<pre class=\"code\">")) {
-			j = i;
-			while (!lines[j].includes("</pre>")) {
-				lines[j] = parseCode(lines[j]);
-				j++;
+		for (let i = 0; i < lines.length; i++) {
+			let j;
+			if (lines[i].includes("<pre class=\"code\">")) {
+				j = i;
+				while (!lines[j].includes("</pre>")) {
+					lines[j] = parseCode(lines[j]);
+					j++;
+				}
 			}
+
+			parsedLines.push(lines[i]);
 		}
-
-		parsedLines.push(lines[i]);
+		
+		return parsedLines.join('\n');
 	}
-
-	return parsedLines.join('\n');
+	else {
+		return content;
+	}
 }
 
 const parseCode = code => {

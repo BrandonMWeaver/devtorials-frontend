@@ -24,6 +24,22 @@ class TutorialForm extends Component {
 		}
 	}
 
+	handleSubmit = e => {
+		e.preventDefault();
+		let formData = new FormData();
+		formData.append("title", this.state.title);
+		formData.append("language", this.state.language);
+		formData.append("description", this.state.description);
+		formData.append("file", this.state.file);
+		fetch("http://localhost:3000/tutorials", {
+			method: "POST",
+			credentials: "include",
+			body: formData
+		})
+		.then(r => r.json())
+		.then(o => console.log(o));
+	}
+
 	render() {
 		return (
 			<div className="TutorialForm">
