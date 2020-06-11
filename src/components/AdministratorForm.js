@@ -1,11 +1,13 @@
 import React, { Component } from 'react';
+import { Redirect } from 'react-router-dom';
 
 import '../styles/AdministratorForm.css';
 
 class AdministratorForm extends Component {
 	state = {
 		username: '',
-		password: ''
+		password: '',
+		submitted: false
 	}
 
 	handleChange = e => {
@@ -27,12 +29,14 @@ class AdministratorForm extends Component {
 		.then(r => r.json())
 		.then(o => this.props.signIn(o));
 		this.setState({
-			username: '',
-			password: ''
+			submitted: true
 		});
 	}
 
 	render() {
+		if (this.state.submitted) {
+			return <Redirect to='/' />
+		}
 		return (
 			<div className="AdminForm">
 				<form onSubmit={this.handleSubmit}>

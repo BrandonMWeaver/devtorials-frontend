@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Redirect } from 'react-router-dom';
 
 import '../styles/TutorialForm.css';
 
@@ -7,7 +8,8 @@ class TutorialForm extends Component {
 		title: '',
 		language: '',
 		description: '',
-		file: null
+		file: null,
+		submitted: false
 	}
 
 	handleChange = e => {
@@ -37,10 +39,18 @@ class TutorialForm extends Component {
 			body: formData
 		})
 		.then(r => r.json())
-		.then(o => console.log(o));
+		.then(o => {
+			this.props.addTutorial(o);
+			this.setState({
+				submitted: true
+			});
+		});
 	}
 
 	render() {
+		if (this.state.submitted) {
+			return <Redirect to='/' />
+		}
 		return (
 			<div className="TutorialForm">
 				<form onSubmit={this.handleSubmit}>

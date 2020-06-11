@@ -12,6 +12,10 @@
 	margin: 0;
 }
 
+.TutorialForm form input[type="submit"]:hover {
+	cursor: pointer;
+}
+
 .TutorialForm form textarea {
 	display: block;
 	margin: 5px 0 0 0;

@@ -71,7 +71,7 @@ const Tutorial = props => {
 				<h3>Lessons</h3>
 				{props.tutorial.lessons.map((lesson, index) => {
 					return (
-						<NavLink key={index} to={`/tutorials/${props.tutorial.id}/lessons/${lesson.id}`}>{`Lesson ${lesson.id}`}</NavLink>
+						<NavLink key={index} to={`/tutorials/${props.tutorial.id}/lessons/${index + 1}`}>{`Lesson ${index + 1}`}</NavLink>
 					);
 				})}
 			</div>

@@ -51,6 +51,12 @@ class App extends Component {
     });
   }
 
+  addTutorial = tutorial => {
+    this.setState({
+      tutorials: [ ...this.state.tutorials, tutorial ]
+    });
+  }
+
   setLessonRoutes(tutorials) {
     const routes = []
     for (let i = 0; i < tutorials.length; i++) {
@@ -88,7 +94,7 @@ class App extends Component {
           }} />
           {this.state.currentAdmin ?
           <Route exact path="/tutorials/new" render={() => {
-            return <TutorialForm />
+            return <TutorialForm addTutorial={this.addTutorial} />
           }} />
           :
           null
